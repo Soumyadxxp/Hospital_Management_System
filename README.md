@@ -99,11 +99,84 @@ Libraries:
 
 ---
 
-## Project Structure
+# Database Schema
 
-hms.py - Main application file  
-hms.db - SQLite database (auto-generated)
+## Patient Table
 
+| Column Name | Data Type | Constraints | Description |
+|-------------|-----------|-------------|-------------|
+| `PNUM` | INTEGER | PRIMARY KEY | Unique Patient ID |
+| `FNAME` | TEXT | NOT NULL | Patient First Name |
+| `MNAME` | TEXT | Nullable | Patient Middle Name |
+| `LNAME` | TEXT | NOT NULL | Patient Last Name |
+| `DID` | TEXT | NOT NULL | Assigned Doctor ID |
+| `GENDER` | TEXT | NOT NULL | Gender (M/F/O) |
+| `DOB` | TEXT | NOT NULL | Date of Birth (YYYY-MM-DD) |
+| `DOA` | TEXT | NOT NULL | Date of Admission |
+| `DOD` | TEXT | Nullable | Date of Discharge |
+| `WARD` | TEXT | NOT NULL | Ward Number |
+| `REASON` | TEXT | NOT NULL | Reason for Admission |
+
+---
+
+## Doctor Table (`doc`)
+
+| Column Name | Data Type | Constraints | Description |
+|-------------|-----------|-------------|-------------|
+| `DID` | TEXT | PRIMARY KEY | Doctor ID |
+| `DFNAME` | TEXT | NOT NULL | Doctor First Name |
+| `DMNAME` | TEXT | Nullable | Doctor Middle Name |
+| `DLNAME` | TEXT | NOT NULL | Doctor Last Name |
+| `FIELD` | TEXT | NOT NULL | Medical Specialization |
+| `DOJ` | TEXT | NOT NULL | Date of Joining |
+
+---
+
+## Nurse Table
+
+| Column Name | Data Type | Constraints | Description |
+|-------------|-----------|-------------|-------------|
+| `NID` | TEXT | PRIMARY KEY | Nurse ID |
+| `NFNAME` | TEXT | NOT NULL | Nurse First Name |
+| `NMNAME` | TEXT | Nullable | Nurse Middle Name |
+| `NLNAME` | TEXT | NOT NULL | Nurse Last Name |
+| `WARD` | TEXT | NOT NULL | Assigned Ward |
+| `DOJ` | TEXT | NOT NULL | Date of Joining |
+
+---
+
+## Doctor Schedule Table (`dtime`)
+
+| Column Name | Data Type | Constraints | Description |
+|-------------|-----------|-------------|-------------|
+| `DID` | TEXT | PRIMARY KEY | Doctor ID |
+| `MON` | TEXT | Nullable | Monday Schedule |
+| `TUE` | TEXT | Nullable | Tuesday Schedule |
+| `WED` | TEXT | Nullable | Wednesday Schedule |
+| `THU` | TEXT | Nullable | Thursday Schedule |
+| `FRI` | TEXT | Nullable | Friday Schedule |
+| `SAT` | TEXT | Nullable | Saturday Schedule |
+| `SUN` | TEXT | Nullable | Sunday Schedule |
+
+---
+
+## User Credentials Table (`usr_pwd`)
+
+| Column Name | Data Type | Constraints | Description |
+|-------------|-----------|-------------|-------------|
+| `USERNAME` | TEXT | PRIMARY KEY | Login Username |
+| `PASSWORD` | TEXT | NOT NULL | User Password |
+
+---
+
+# Entity Relationships
+
+| Parent Table | Child Table | Relationship |
+|--------------|-------------|--------------|
+| `doc` | `Patient` | One doctor can be assigned to multiple patients through `DID`. |
+| `doc` | `dtime` | One doctor has one weekly schedule through `DID`. |
+| `nurse` | `Patient` | Nurses are associated with patients through the assigned `WARD`. |
+| `usr_pwd` | Application | Stores user login credentials for authentication. |
 ---
 
 ## Default Behavior
