@@ -85,20 +85,6 @@ hms.db - SQLite database (auto-generated)
 
 ---
 
-## Installation & Setup
-
-Clone the repository:
-git clone https://github.com/your-username/hospital-management-system.git  
-cd hospital-management-system  
-
-Install dependencies:
-pip install streamlit  
-
-Run the application:
-streamlit run hms.py  
-
----
-
 ## Default Behavior
 
 - Database is created automatically on first run
