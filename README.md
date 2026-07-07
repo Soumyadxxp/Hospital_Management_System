@@ -177,6 +177,72 @@ Libraries:
 | `doc` | `dtime` | One doctor has one weekly schedule through `DID`. |
 | `nurse` | `Patient` | Nurses are associated with patients through the assigned `WARD`. |
 | `usr_pwd` | Application | Stores user login credentials for authentication. |
+
+# Entity Relationship (ER) Diagram
+
+```mermaid
+erDiagram
+
+    PATIENT {
+        INTEGER PNUM PK
+        TEXT FNAME
+        TEXT MNAME
+        TEXT LNAME
+        TEXT DID FK
+        TEXT GENDER
+        TEXT DOB
+        TEXT DOA
+        TEXT DOD
+        TEXT WARD
+        TEXT REASON
+    }
+
+    DOCTOR {
+        TEXT DID PK
+        TEXT DFNAME
+        TEXT DMNAME
+        TEXT DLNAME
+        TEXT FIELD
+        TEXT DOJ
+    }
+
+    NURSE {
+        TEXT NID PK
+        TEXT NFNAME
+        TEXT NMNAME
+        TEXT NLNAME
+        TEXT WARD
+        TEXT DOJ
+    }
+
+    DOCTOR_SCHEDULE {
+        TEXT DID PK
+        TEXT MON
+        TEXT TUE
+        TEXT WED
+        TEXT THU
+        TEXT FRI
+        TEXT SAT
+        TEXT SUN
+    }
+
+    USER_LOGIN {
+        TEXT USERNAME PK
+        TEXT PASSWORD
+    }
+
+    DOCTOR ||--o{ PATIENT : "Treats"
+
+    DOCTOR ||--|| DOCTOR_SCHEDULE : "Has"
+
+    NURSE }o--o{ PATIENT : "Assigned to Ward"
+
+    USER_LOGIN {
+        TEXT USERNAME
+        TEXT PASSWORD
+    }
+```
+
 ---
 
 ## Default Behavior
