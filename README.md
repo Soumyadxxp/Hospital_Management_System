@@ -249,7 +249,7 @@ erDiagram
 
 - Database is created automatically on first run
 - Sample data is inserted if database is empty
-- No default admin account; user must register
+- No default admin account, user must register
 
 ---
 
