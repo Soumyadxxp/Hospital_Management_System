@@ -1,6 +1,6 @@
 # Hospital Management System (HMS)
 
-A full-stack Hospital Management System built using Streamlit and SQLite. It provides a complete solution for managing patients, doctors, and nurses with authentication, CRUD operations, and scheduling features.
+A full-stack Hospital Management System built using Streamlit and SQLite. It provides a complete solution for managing patients, doctors, and nurses with authentication, CRUD operations, and scheduling features. 
 <img width="1600" height="1112" alt="image" src="https://github.com/user-attachments/assets/c5024145-b8b8-41ac-9e3b-df2f3ff5d3eb" />  
 <img width="1600" height="1112" alt="image" src="https://github.com/user-attachments/assets/c203ed65-7bc9-4174-84f9-00a5435a02e0" />
 <img width="1600" height="1112" alt="image" src="https://github.com/user-attachments/assets/69c48709-6b47-47bd-abf4-88bd11e5f897" /> 
